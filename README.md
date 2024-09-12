@@ -33,6 +33,12 @@ cd leads-management
 
 ng serve
 ##
+Login component added
+##  
+- command to add Login Component
+##
+   -- ng generate component login 
+## 
 
 ## Development server
 
