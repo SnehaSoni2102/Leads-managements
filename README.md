@@ -93,6 +93,14 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/style
    -- ng generate component leads 
 ## 
 
+## Navigate to Leads Page
+- On Click on Login button its Navigate to Leads Page
+##
+   Router injected to login.component.ts Page - private router: Router 
+   ##
+   -if all credentials are correct
+       -- this.router.navigate(['/leads']);  // Adjust the path as needed
+
 
 ## Development server
 

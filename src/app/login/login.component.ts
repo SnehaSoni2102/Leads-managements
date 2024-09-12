@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
- 
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-login',
@@ -9,9 +9,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  loginError: boolean = false;  // Declare and initialize loginError
+  loginError: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router  // Inject Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -25,9 +28,12 @@ export class LoginComponent implements OnInit {
       const { email, password } = this.loginForm.value;
 
       // Simulate a login check (replace with actual authentication logic)
-      if (email === 'user@example.com' && password === 'password123') {
+      if (email === 'interviewassignment@gmail.com' && password === 'Automateazy@123') {
         console.log('Login successful');
         this.loginError = false;  // Reset the error flag on successful login
+
+        // Navigate to Leads Page
+        this.router.navigate(['/leads']);  // Adjust the path as needed
       } else {
         console.log('Login failed');
         this.loginError = true;  // Set the error flag on failed login
