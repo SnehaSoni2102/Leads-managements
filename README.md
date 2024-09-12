@@ -78,6 +78,10 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/style
 ##
 ## Login page route
 - { path: '', component: LoginComponent }
+##
+## Login Page created
+- added elements - Login page contains Logo, Image, Text email, password, Login Button, Forgot password text
+##
 
 
 ## Development server
