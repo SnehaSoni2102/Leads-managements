@@ -33,7 +33,7 @@ cd leads-management
 
 ng serve
 ##
-Login component added
+## Login component added
 ##  
 - command to add Login Component
 ##
@@ -76,6 +76,9 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/style
 ##
 @tailwind utilities;
 ##
+## Login page route
+- { path: '', component: LoginComponent }
+
 
 ## Development server
 
