@@ -1,46 +1,48 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']  // Corrected to 'styleUrls'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm!: FormGroup;
-  loginError: boolean = false;
+  loginError: string | null = null;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router  // Inject Router
-  ) {}
-
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
+      const loginData = { username: email, password };
 
-      // Simulate a login check (replace with actual authentication logic)
-      if (email === 'interviewassignment@gmail.com' && password === 'Automateazy@123') {
-        console.log('Login successful');
-        this.loginError = false;  // Reset the error flag on successful login
+      this.http.post('https://dev-cc.automateazy.com/api/v1/users/auth', loginData)
+        .subscribe({
+          next: (response: any) => {
+            if (response.status) {
+              // Save token to local storage
+              localStorage.setItem('authToken', response.result.token);
 
-        // Navigate to Leads Page
-        this.router.navigate(['/leads']);  // Adjust the path as needed
-      } else {
-        console.log('Login failed');
-        this.loginError = true;  // Set the error flag on failed login
-      }
+              // Navigate to Leads Page
+              this.router.navigate(['/leads']);
+            } else {
+              this.loginError = 'Incorrect email or password.';
+            }
+          },
+          error: () => {
+            this.loginError = 'An error occurred. Please try again.';
+          }
+        });
     } else {
-      console.log('Form is not valid');
-      this.loginError = false;  // Optionally reset the error flag
+      this.loginError = "Invalid form. Please check your input.";
     }
   }
 }

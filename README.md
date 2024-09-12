@@ -100,7 +100,12 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/style
    ##
    -if all credentials are correct
        -- this.router.navigate(['/leads']);  // Adjust the path as needed
-
+##
+## Calling APIs and Removed Harcoded Login Form
+    Used Login Form used on web to create request body for auth call
+##
+    parse token from auth api and pass its dynamic value to leads API.
+##
 
 ## Development server
 
