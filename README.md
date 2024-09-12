@@ -86,6 +86,13 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/style
 - Displayed appropriate error messages for incorrect credentials
 ##
 
+## Leads component added
+##  
+- command to add Login Component
+##
+   -- ng generate component leads 
+## 
+
 
 ## Development server
 
