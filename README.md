@@ -1,6 +1,38 @@
 # LeadsMangements
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.2.
+##
+To set up an Angular project, you'll need to follow a series of commands. Here’s a step-by-step guide:
+##
+## 1. Installed Node.js and npm
+
+Angular requires Node.js and npm (Node Package Manager). Check if they're installed using:
+##
+node -v
+##
+npm -v
+##
+
+## 2. Installed Angular CLI
+
+The Angular Command Line Interface (CLI) is a tool to initialize, develop, and maintain Angular applications.
+##
+npm install -g @angular/cli
+##
+## Created a New Angular Project
+
+ng new leads-management
+##
+
+## 4. Navigate to the Project Directory
+
+cd leads-management
+##
+
+## 5. Serve the Application
+
+ng serve
+##
 
 ## Development server
 
