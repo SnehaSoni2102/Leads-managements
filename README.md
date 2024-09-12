@@ -82,6 +82,9 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/style
 ## Login Page created
 - added elements - Login page contains Logo, Image, Text email, password, Login Button, Forgot password text
 ##
+## Added validation for email and password
+- Displayed appropriate error messages for incorrect credentials
+##
 
 
 ## Development server
