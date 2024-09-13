@@ -106,6 +106,7 @@ Add the @tailwind directives for each of Tailwind’s layers to your ./src/style
 ##
     parse token from auth api and pass its dynamic value to leads API.
 ##
+## Table data display on Lead Page
 
 ## Development server
 
