@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent {
   loginForm!: FormGroup;
   loginError: string | null = null;
+  hidePassword = true;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.loginForm = this.fb.group({
@@ -44,5 +45,9 @@ export class LoginComponent {
     } else {
       this.loginError = "Invalid form. Please check your input.";
     }
+  }
+
+  togglePasswordVisibility(){
+    this.hidePassword = !this.hidePassword;
   }
 }
